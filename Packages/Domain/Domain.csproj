@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>MdB.Hanseath.Domain</PackageId>
+    <Authors>Matthew de Beer</Authors>
+    <Description>Hanseath.Domain contains code for the application of certain Domain Driven Design practices.</Description>
+    <VersionPrefix>0.0.1</VersionPrefix>
+  </PropertyGroup>
+
+</Project>

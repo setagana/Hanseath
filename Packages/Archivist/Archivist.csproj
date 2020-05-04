@@ -5,7 +5,7 @@
     <PackageId>MdB.Hanseath.Archivist</PackageId>
     <Authors>Matthew de Beer</Authors>
     <Description>Hanseath.Archivist is a simple wrapper for some methods of the System.IO package, allowing mocking out interaction with the filesystem for unit testing.</Description>
-    <VersionPrefix>0.0.2</VersionPrefix>
+    <VersionPrefix>0.0.3</VersionPrefix>
   </PropertyGroup>
 
 </Project>

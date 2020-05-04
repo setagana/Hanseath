@@ -1,0 +1,20 @@
+variables:
+- group: nuget
+    
+trigger:
+  batch: false
+  branches:
+    include: 
+    - feat/*
+  paths:
+    include:
+    - Packages/Archivist/*
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+name: $(Date:yyyyMMdd)$(Rev:-r)
+steps:
+- script: docker build -f prerelease.dockerfile --build-arg API_KEY=$(API_KEY) --build-arg VERSION_SUFFIX=alpha$(Build.BuildNumber) .
+  workingDirectory: $(Build.Repository.LocalPath)/Packages/Archivist
+  displayName: 'Pack and push to Nuget'

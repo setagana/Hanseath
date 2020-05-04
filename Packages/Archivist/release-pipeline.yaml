@@ -1,21 +1,20 @@
 variables:
-    - group: nuget
-        
-    trigger:
-      batch: false
-      branches:
-        include:
-        - master
-      paths:
-        include:
-        - Packages/Archivist/Archivist.csproj
-    
-    pool:
-      vmImage: 'ubuntu-latest'
-    
-    name: $(Date:yyyyMMdd)$(Rev:-r)
-    steps:
-    - script: docker build -f release.dockerfile --build-arg API_KEY=$(API_KEY) .
-      workingDirectory: $(Build.Repository.LocalPath)/Packages/Archivist
-      displayName: 'Pack and push to Nuget'
-    
+- group: nuget
+
+trigger:
+  batch: false
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - Packages/Archivist/Archivist.csproj
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+name: $(Date:yyyyMMdd)$(Rev:-r)
+steps:
+- script: docker build -f release.dockerfile --build-arg API_KEY=$(API_KEY) .
+  workingDirectory: $(Build.Repository.LocalPath)/Packages/Archivist
+  displayName: 'Pack and push to Nuget'

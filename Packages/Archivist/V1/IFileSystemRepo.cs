@@ -1,6 +1,6 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.IO;
 
 namespace Archivist.V1
 {
@@ -8,6 +8,8 @@ namespace Archivist.V1
     {
         Task<byte[]> ReadAllBytesAsync(string path, System.Threading.CancellationToken cancellationToken = default);
 
-        Task WriteAllBytesAsync (string path, byte[] bytes, System.Threading.CancellationToken cancellationToken = default);
+        Task WriteAllBytesAsync(string path, byte[] bytes, System.Threading.CancellationToken cancellationToken = default);
+
+        IEnumerable<string> GetDirectoryFilesByExtension(string directoryPath, string extension);
     }
 }

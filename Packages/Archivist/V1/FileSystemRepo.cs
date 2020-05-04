@@ -24,5 +24,10 @@ namespace Archivist.V1
                 .EnumerateFiles(directoryPath)
                 .Where(filePath => String.Equals(System.IO.Path.GetExtension(filePath), extension, StringComparison.OrdinalIgnoreCase));
         }
+
+        public bool DirectoryExists(string path)
+        {
+            return Directory.Exists(path);
+        }
     }
 }

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+      <PackageId>MdB.Hanseath.Scribe</PackageId>
+    <Authors>Matthew de Beer</Authors>
+    <Description>Hanseath.Scribe is a library for wrapping the creation of PDF files for Hanseath.</Description>
+    <VersionPrefix>0.0.1</VersionPrefix>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MdB.Hanseath.Archivist" Version="0.0.4-*" />
+    <PackageReference Include="MdB.Hanseath.Domain" Version="0.0.1-*" />
+    <PackageReference Include="PDF.Core" Version="2020.0.0" />
+  </ItemGroup>
+
+</Project>

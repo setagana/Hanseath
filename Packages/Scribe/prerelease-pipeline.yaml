@@ -1,0 +1,28 @@
+variables:
+- group: nuget
+    
+trigger:
+  batch: false
+  branches:
+    include: 
+    - feat/*
+  paths:
+    include:
+    - Packages/Scribe/*
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+name: $(Date:yyyyMMdd)$(Rev:-r)
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    arguments: '--filter Category=UnitTests'
+    publishTestResults: true
+    testRunTitle: $(Build.SourceVersionMessage)
+    workingDirectory: $(Build.Repository.LocalPath)/Packages/Scribe.Tests
+  displayName: 'Run Tests'
+- script: docker build -f prerelease.dockerfile --build-arg API_KEY=$(API_KEY) --build-arg VERSION_SUFFIX=alpha$(Build.BuildNumber) .
+  workingDirectory: $(Build.Repository.LocalPath)/Packages/Scribe
+  displayName: 'Pack and push to Nuget'
